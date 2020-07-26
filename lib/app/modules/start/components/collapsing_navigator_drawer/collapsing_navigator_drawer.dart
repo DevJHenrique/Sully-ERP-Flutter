@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:sully/app/modules/start/start_controller.dart';
 
 import 'collapsing_list_tile.dart';
 import 'navigation_itens.dart';
@@ -11,46 +13,30 @@ class CollapsingNavigationDrawer extends StatefulWidget {
   }
 }
 
-class CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer> with SingleTickerProviderStateMixin {
-  double maxWidth = 210;
-  double minWidth = 70;
+class CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer> {
+  StartController controller = Modular.get();
   bool isCollapsed = false;
-  AnimationController _animationController;
-  Animation<double> widthAnimation;
   int currentSelectedIndex = 0;
 
   @override
-  void initState() {
-    super.initState();
-    _animationController = AnimationController(vsync: this, duration: Duration(milliseconds: 300));
-    widthAnimation = Tween<double>(begin: maxWidth, end: minWidth).animate(_animationController);
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: _animationController,
-      builder: (context, widget) => getWidget(context, widget),
-    );
+    return getWidget(context, widget);
   }
 
   Widget getWidget(context, widget) {
     return Material(
       elevation: 80.0,
       child: Container(
-        decoration: BoxDecoration(
-          color: drawerBackgroundColor,
-          borderRadius: BorderRadius.only(
-            topRight: Radius.circular(30),
-            bottomRight: Radius.circular(30),
-          ),
-        ),
-        width: widthAnimation.value,
+        color: drawerBackgroundColor,
+        width: 500,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            SizedBox(
+              height: 20,
+            ),
             CollapsingListTile(
-              animatedWidth: widthAnimation.value,
-              title: 'Techie',
+              title: ' SULLY',
               icon: Icons.person,
             ),
             Divider(
@@ -64,7 +50,6 @@ class CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer> 
                 },
                 itemBuilder: (context, counter) {
                   return CollapsingListTile(
-                    animatedWidth: widthAnimation.value,
                     onTap: () {
                       setState(() {
                         currentSelectedIndex = counter;
@@ -80,16 +65,14 @@ class CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer> 
             ),
             InkWell(
               onTap: () {
+                controller.selectcollapseMenu();
                 setState(() {
                   isCollapsed = !isCollapsed;
-                  isCollapsed ? _animationController.forward() : _animationController.reverse();
                 });
               },
-              child: AnimatedIcon(
-                icon: AnimatedIcons.close_menu,
-                progress: _animationController,
-                color: selectedColor,
-                size: 50.0,
+              child: CollapsingListTile(
+                title: '',
+                icon: Icons.menu,
               ),
             ),
             SizedBox(
