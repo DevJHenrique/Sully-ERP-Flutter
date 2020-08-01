@@ -6,10 +6,18 @@ class StartController = _StartControllerBase with _$StartController;
 
 abstract class _StartControllerBase with Store {
   @observable
-  bool collapseMenu = false;
+  bool isCollapsed = false;
 
   @action
-  void selectcollapseMenu() {
-    collapseMenu == false ? collapseMenu = true : collapseMenu = false;
+  void changeCollapse() {
+    isCollapsed = !isCollapsed;
+  }
+
+  @observable
+  int currentSelectedIndex = 0;
+
+  @action
+  void changeSelectedIndex(v) {
+    currentSelectedIndex = v;
   }
 }

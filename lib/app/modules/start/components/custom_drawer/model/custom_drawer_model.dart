@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class NavigationTileModel {
+class CustomDrawerModel {
   String title;
   IconData icon;
   String routeMenu;
 
-  NavigationTileModel({this.title, this.icon, this.routeMenu});
+  CustomDrawerModel({this.title, this.icon, this.routeMenu});
 }

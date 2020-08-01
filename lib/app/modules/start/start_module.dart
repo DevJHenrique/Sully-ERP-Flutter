@@ -1,6 +1,5 @@
 import 'start_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:dio/dio.dart';
 import 'start_page.dart';
 
 class StartModule extends ChildModule {

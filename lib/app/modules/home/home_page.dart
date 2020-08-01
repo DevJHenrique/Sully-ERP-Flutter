@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:sully/app/shared/theme.dart';
 import 'home_controller.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,11 +17,26 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      backgroundColor: appBackgroundColor,
       body: Column(
-        children: <Widget>[],
+        children: <Widget>[
+          Text(
+            "Lorem Ipson",
+            style: selectedText,
+          ),
+          Text(
+            "Lorem Ipson",
+            style: selectedText,
+          ),
+          Text(
+            "Lorem Ipson",
+            style: selectedText,
+          ),
+          Text(
+            "Lorem Ipson",
+            style: selectedText,
+          )
+        ],
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:sully/app/shared/theme.dart';
 
 class AppWidget extends StatelessWidget {
   @override
@@ -9,6 +10,7 @@ class AppWidget extends StatelessWidget {
       title: 'Flutter Slidy',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        backgroundColor: appBackgroundColor,
       ),
       initialRoute: '/',
       onGenerateRoute: Modular.generateRoute,
