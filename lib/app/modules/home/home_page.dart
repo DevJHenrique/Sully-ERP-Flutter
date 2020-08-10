@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:sully/app/modules/calendar/calendar_module.dart';
 import 'package:sully/app/shared/theme.dart';
 import 'home_controller.dart';
 
@@ -18,24 +19,31 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: appBackgroundColor,
-      body: Column(
-        children: <Widget>[
-          Text(
-            "Lorem Ipson",
-            style: selectedText,
+      body: Row(
+        children: [
+          Expanded(
+            child: Column(
+              children: <Widget>[
+                Text(
+                  "Lorem Ipson",
+                  style: selectedText,
+                ),
+                Text(
+                  "Lorem Ipson",
+                  style: selectedText,
+                ),
+                Text(
+                  "Lorem Ipson",
+                  style: selectedText,
+                ),
+                Text(
+                  "Lorem Ipson",
+                  style: selectedText,
+                )
+              ],
+            ),
           ),
-          Text(
-            "Lorem Ipson",
-            style: selectedText,
-          ),
-          Text(
-            "Lorem Ipson",
-            style: selectedText,
-          ),
-          Text(
-            "Lorem Ipson",
-            style: selectedText,
-          )
+          Container(width: 300, child: RouterOutlet(module: CalendarModule())),
         ],
       ),
     );

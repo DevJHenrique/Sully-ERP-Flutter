@@ -42,7 +42,6 @@ class _StartPageState extends ModularState<StartPage, StartController> {
                     children: [
                       RouterOutlet(module: HomeModule()),
                       RouterOutlet(module: FinancesModule()),
-                      RouterOutlet(module: CalendarModule()),
                       RouterOutlet(module: TeamModule()),
                       RouterOutlet(module: CustomerModule()),
                       RouterOutlet(module: NfeModule()),

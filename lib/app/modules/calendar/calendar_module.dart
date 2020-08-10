@@ -5,7 +5,7 @@ import 'calendar_page.dart';
 class CalendarModule extends ChildModule {
   @override
   List<Bind> get binds => [
-        Bind((i) => CalendarController()),
+        Bind((i) => MyCalendarController()),
       ];
 
   @override
